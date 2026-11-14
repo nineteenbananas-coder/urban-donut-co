@@ -1,4 +1,4 @@
-import { FEATURED } from '../data'
+import { RINGS } from '../data'
 import { useCart } from '../cart'
 import { DonutVisual } from './DonutVisual'
 
@@ -6,55 +6,56 @@ export function Menu() {
   const { add } = useCart()
 
   return (
-    <section className="menu-section" id="menu" aria-labelledby="menu-heading">
+    <section className="menu-section" id="rings" aria-labelledby="rings-heading">
       <div className="section-head">
-        <h2 id="menu-heading">The case</h2>
-        <p>Six fresh faces, rotated with the morning fryer.</p>
+        <h2 id="rings-heading">The Six Rings</h2>
+        <p>Six rings. Zero slices. The dozen starts here.</p>
       </div>
-      <ul className="menu-list">
-        {FEATURED.map((donut, index) => (
+      <ol className="menu-list">
+        {RINGS.map((ring, index) => (
           <li
-            key={donut.id}
+            key={ring.id}
             className="menu-item"
-            style={{ animationDelay: `${index * 60}ms` }}
+            style={{ animationDelay: `${index * 70}ms` }}
           >
             <div className="menu-visual">
               <DonutVisual
-                glaze={donut.glaze}
-                icing={donut.icing}
-                hole={donut.hole}
+                glaze={ring.glaze}
+                icing={ring.icing}
                 size={118}
-                sprinkle={donut.id === 'city-sprinkle'}
+                pearl={ring.id === 'wide-wonder'}
+                goldStripe={ring.id === 'beam'}
               />
             </div>
             <div className="menu-copy">
               <div className="menu-title-row">
-                <h3>{donut.name}</h3>
-                {donut.tag ? <span className="tag">{donut.tag}</span> : null}
+                <span className="ring-index">{String(index + 1).padStart(2, '0')}</span>
+                <h3>{ring.name}</h3>
               </div>
-              <p>{donut.blurb}</p>
+              <p>{ring.blurb}</p>
+              <p className="finish">{ring.finish}</p>
               <div className="menu-actions">
-                <span className="price">${donut.price.toFixed(2)}</span>
+                <span className="price">${ring.price.toFixed(2)}</span>
                 <button
                   type="button"
                   className="btn btn-small"
                   onClick={() =>
                     add({
-                      id: donut.id,
-                      name: donut.name,
-                      detail: donut.blurb,
-                      price: donut.price,
-                      glaze: donut.glaze,
+                      id: ring.id,
+                      name: ring.name,
+                      detail: ring.blurb,
+                      price: ring.price,
+                      glaze: ring.glaze,
                     })
                   }
                 >
-                  Add
+                  Add to dozen
                 </button>
               </div>
             </div>
           </li>
         ))}
-      </ul>
+      </ol>
     </section>
   )
 }

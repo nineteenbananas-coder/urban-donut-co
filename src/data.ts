@@ -1,121 +1,115 @@
-export type Donut = {
+export type Ring = {
   id: string
   name: string
   blurb: string
+  finish: string
   price: number
   glaze: string
   icing: string
-  hole: string
-  tag?: string
+  campaignDay?: string
 }
 
-export type BuilderOption = {
-  id: string
-  label: string
-  price: number
-  color?: string
-}
-
-export const FEATURED: Donut[] = [
+export const RINGS: Ring[] = [
   {
-    id: 'midnight-maple',
-    name: 'Midnight Maple',
-    blurb: 'Yeast ring, maple glaze, toasted pecan crunch.',
-    price: 3.75,
-    glaze: '#C47A2C',
-    icing: '#E8B86D',
-    hole: '#1A1614',
-    tag: 'Signature',
-  },
-  {
-    id: 'cherry-asphalt',
-    name: 'Cherry Asphalt',
-    blurb: 'Dark chocolate cake, cherry glaze, cocoa nibs.',
-    price: 3.95,
-    glaze: '#FF3D6E',
-    icing: '#2A1A1F',
-    hole: '#1A1614',
-    tag: 'Fan favorite',
-  },
-  {
-    id: 'city-sprinkle',
-    name: 'City Sprinkle',
-    blurb: 'Vanilla yeast, sugar shell, confetti crunch.',
+    id: 'wide-wonder',
+    name: 'Wide Wonder',
+    blurb: 'Vanilla bean icing drowned in pearl sugar.',
+    finish: '200g icing sugar, milk, vanilla bean paste, pearl sugar before it sets.',
     price: 3.5,
-    glaze: '#FFF4E8',
-    icing: '#FFE8F0',
-    hole: '#1A1614',
+    glaze: '#F6F3EC',
+    icing: '#FFFDF8',
+    campaignDay: 'Monday',
   },
   {
-    id: 'uptown-waffle',
-    name: 'Uptown Waffle',
-    blurb: 'Waffle yeast, apple filling, cream cheese frost.',
+    id: 'beam',
+    name: 'Beam',
+    blurb: 'White chocolate pour with one edible-gold stripe.',
+    finish: 'White chocolate + cream, then a gold-dust stripe down the ring.',
     price: 4.25,
-    glaze: '#F5C84C',
-    icing: '#FFF1D6',
-    hole: '#1A1614',
-    tag: 'Limited',
+    glaze: '#F3D27A',
+    icing: '#FFF1C2',
+    campaignDay: 'Friday',
   },
   {
-    id: 'smokestack-mocha',
-    name: 'Smokestack Mocha',
-    blurb: 'Espresso glaze, chocolate fill, sea salt flake.',
-    price: 4.1,
-    glaze: '#5C3A2E',
-    icing: '#3D241C',
-    hole: '#1A1614',
+    id: 'rubble',
+    name: 'Rubble',
+    blurb: 'Browned-butter crumb, smoked salt, thin honey.',
+    finish: 'Nutty crumb baked at 160°C, stuck with honey while warm.',
+    price: 3.95,
+    glaze: '#C4A574',
+    icing: '#8B6914',
   },
   {
-    id: 'berry-boulevard',
-    name: 'Berry Boulevard',
-    blurb: 'Lemon cake, blueberry glaze, freeze-dried berry.',
-    price: 3.85,
-    glaze: '#2F6FBF',
-    icing: '#8EB8E8',
-    hole: '#1A1614',
+    id: 'night-shift',
+    name: 'Night Shift',
+    blurb: 'Espresso black cocoa. Dipped twice. Nearly ink.',
+    finish: 'Strong espresso + black cocoa icing, double dip.',
+    price: 3.75,
+    glaze: '#1A1816',
+    icing: '#2C2824',
+  },
+  {
+    id: 'nurses-round',
+    name: "Nurses Round",
+    blurb: 'Hot milk icing. Nothing else. Warm ring only.',
+    finish: 'Icing sugar and hot milk. One dip while warm.',
+    price: 3.25,
+    glaze: '#F6F3EC',
+    icing: '#EDE6D8',
+  },
+  {
+    id: 'mirror',
+    name: 'Mirror',
+    blurb: 'Glass sheet glaze. Chilled ring. No fingerprints.',
+    finish: 'Gelatine mirror glaze poured at 30°C over a cold ring.',
+    price: 4.5,
+    glaze: '#6FD6E6',
+    icing: '#B8F0F8',
   },
 ]
 
-export const BASES: BuilderOption[] = [
-  { id: 'yeast', label: 'Yeast ring', price: 2.5, color: '#E8C9A0' },
-  { id: 'cake', label: 'Cake old-fashioned', price: 2.75, color: '#C9A06A' },
-  { id: 'long-john', label: 'Long john', price: 2.85, color: '#D4B896' },
-  { id: 'filled', label: 'Filled bismarck', price: 3.0, color: '#DEB887' },
+export const CAMPAIGN = [
+  {
+    day: 'Monday',
+    time: '6:15pm',
+    title: 'Wide Wonder',
+    caption:
+      'On the day I was born, the nurses all gathered round and they gazed in wide wonder. It was not a slice.',
+  },
+  {
+    day: 'Tuesday',
+    time: '6:15pm',
+    title: 'The Hole',
+    caption:
+      'Pizza fills a plate. A donut keeps the sky in the middle. Friday. The dozen.',
+  },
+  {
+    day: 'Wednesday',
+    time: '12:10pm',
+    title: 'The Gaze',
+    caption:
+      "Leave this one alone. She could tell it wasn't pizza. Rainbow in the glass. Glaze on the ring. Tomorrow.",
+  },
+  {
+    day: 'Thursday',
+    time: '11:00am',
+    title: 'The Dozen',
+    caption:
+      'The dozen. Six rings. Zero slices. Wide Wonder. Beam. Rubble. Night Shift. Nurses Round. Mirror.',
+  },
+  {
+    day: 'Friday',
+    time: '4:00pm',
+    title: 'The Beam',
+    caption:
+      'The beam opens. One dozen. If you wanted a slice, the city still has plenty.',
+  },
+  {
+    day: 'Sunday',
+    time: 'Hold',
+    title: 'No film',
+    caption: 'No film. Reply to anyone who asks for a slice.',
+  },
 ]
 
-export const GLAZES: BuilderOption[] = [
-  { id: 'classic', label: 'Classic sugar', price: 0, color: '#FFF4E8' },
-  { id: 'cherry', label: 'Cherry glaze', price: 0.5, color: '#FF3D6E' },
-  { id: 'maple', label: 'Maple', price: 0.5, color: '#C47A2C' },
-  { id: 'chocolate', label: 'Dark chocolate', price: 0.6, color: '#3D241C' },
-  { id: 'lemon', label: 'Lemon zest', price: 0.45, color: '#F5C84C' },
-]
-
-export const TOPPINGS: BuilderOption[] = [
-  { id: 'none', label: 'No topping', price: 0 },
-  { id: 'sprinkles', label: 'City sprinkles', price: 0.4 },
-  { id: 'pecan', label: 'Toasted pecan', price: 0.55 },
-  { id: 'bacon', label: 'Candied bacon', price: 0.75 },
-  { id: 'cocoa', label: 'Cocoa nibs', price: 0.5 },
-  { id: 'berry', label: 'Freeze-dried berry', price: 0.55 },
-]
-
-export const DRIZZLES: BuilderOption[] = [
-  { id: 'none', label: 'No drizzle', price: 0 },
-  { id: 'caramel', label: 'Salted caramel', price: 0.4 },
-  { id: 'cream', label: 'Cream cheese', price: 0.45 },
-  { id: 'raspberry', label: 'Raspberry', price: 0.4 },
-]
-
-export const HOURS = [
-  { day: 'Mon–Fri', time: '6:00a – 2:00p' },
-  { day: 'Saturday', time: '7:00a – 2:00p' },
-  { day: 'Sunday', time: '7:00a – 1:00p' },
-]
-
-export const LOCATION = {
-  name: 'Uptown Counter',
-  address: '2805 Allen Street, Suite 119',
-  city: 'Dallas, TX 75204',
-  phone: '(469) 444-1302',
-}
+export const HASHTAGS = ['#UrbanDonut', '#WideWonder', '#NotASlice']

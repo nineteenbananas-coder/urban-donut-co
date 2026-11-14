@@ -4,20 +4,22 @@ type Props = {
   hole?: string
   size?: number
   className?: string
-  sprinkle?: boolean
+  pearl?: boolean
+  goldStripe?: boolean
   animate?: boolean
 }
 
 export function DonutVisual({
   glaze,
   icing = glaze,
-  hole = '#1A1614',
+  hole = '#070708',
   size = 160,
   className = '',
-  sprinkle = false,
+  pearl = false,
+  goldStripe = false,
   animate = false,
 }: Props) {
-  const id = `donut-${size}-${glaze.replace('#', '')}`
+  const id = `ring-${size}-${glaze.replace('#', '')}`
 
   return (
     <svg
@@ -30,40 +32,63 @@ export function DonutVisual({
       <defs>
         <radialGradient id={`${id}-body`} cx="35%" cy="30%" r="70%">
           <stop offset="0%" stopColor={icing} />
-          <stop offset="55%" stopColor={glaze} />
+          <stop offset="60%" stopColor={glaze} />
           <stop offset="100%" stopColor={glaze} stopOpacity="0.92" />
         </radialGradient>
-        <filter id={`${id}-soft`} x="-20%" y="-20%" width="140%" height="140%">
-          <feDropShadow dx="0" dy="8" stdDeviation="8" floodColor="#000" floodOpacity="0.28" />
-        </filter>
+        <linearGradient id={`${id}-beam`} x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#F3D27A" />
+          <stop offset="100%" stopColor="#FFF1C2" />
+        </linearGradient>
       </defs>
-      <circle cx="100" cy="108" r="78" fill="#000" opacity="0.18" />
+      <circle cx="100" cy="108" r="78" fill="#000" opacity="0.35" />
+      <circle cx="100" cy="100" r="78" fill={`url(#${id}-body)`} />
       <circle
         cx="100"
         cy="100"
         r="78"
-        fill={`url(#${id}-body)`}
-        filter={`url(#${id}-soft)`}
-      />
-      <circle cx="100" cy="100" r="78" fill="none" stroke="rgba(255,255,255,0.22)" strokeWidth="3" />
-      <circle cx="100" cy="100" r="30" fill={hole} />
-      <circle cx="100" cy="100" r="30" fill="none" stroke="rgba(255,255,255,0.08)" strokeWidth="4" />
-      <path
-        d="M42 78 C58 52, 86 46, 104 58 C118 68, 126 64, 138 54"
         fill="none"
-        stroke="rgba(255,255,255,0.35)"
-        strokeWidth="7"
+        stroke="rgba(246,243,236,0.18)"
+        strokeWidth="3"
+      />
+      <circle cx="100" cy="100" r="30" fill={hole} />
+      <circle
+        cx="100"
+        cy="100"
+        r="30"
+        fill="none"
+        stroke="rgba(246,243,236,0.08)"
+        strokeWidth="4"
+      />
+      <path
+        d="M44 76 C60 50, 88 44, 106 56 C120 66, 128 62, 140 52"
+        fill="none"
+        stroke="rgba(255,255,255,0.28)"
+        strokeWidth="6"
         strokeLinecap="round"
       />
-      {sprinkle && (
-        <g strokeLinecap="round" strokeWidth="4">
-          <line x1="58" y1="70" x2="68" y2="58" stroke="#FFE566" />
-          <line x1="130" y1="62" x2="142" y2="72" stroke="#7AD7FF" />
-          <line x1="148" y1="110" x2="160" y2="118" stroke="#FF8FAB" />
-          <line x1="56" y1="126" x2="46" y2="136" stroke="#9BE39B" />
-          <line x1="118" y1="148" x2="130" y2="158" stroke="#FFD166" />
-          <line x1="78" y1="150" x2="70" y2="162" stroke="#FF6B6B" />
+      {pearl && (
+        <g fill="#F6F3EC">
+          <circle cx="70" cy="62" r="3.2" />
+          <circle cx="92" cy="54" r="2.6" />
+          <circle cx="118" cy="58" r="3" />
+          <circle cx="140" cy="78" r="2.8" />
+          <circle cx="148" cy="108" r="3.1" />
+          <circle cx="136" cy="138" r="2.5" />
+          <circle cx="108" cy="150" r="3" />
+          <circle cx="74" cy="146" r="2.7" />
+          <circle cx="54" cy="118" r="3" />
+          <circle cx="52" cy="88" r="2.4" />
         </g>
+      )}
+      {goldStripe && (
+        <path
+          d="M78 48 C96 90, 108 118, 126 156"
+          fill="none"
+          stroke={`url(#${id}-beam)`}
+          strokeWidth="7"
+          strokeLinecap="round"
+          opacity="0.95"
+        />
       )}
     </svg>
   )

@@ -1,52 +1,45 @@
+import { Logo } from './Logo'
 import { DonutVisual } from './DonutVisual'
 
-type Props = {
-  onBuild: () => void
-}
-
-export function Hero({ onBuild }: Props) {
+export function Hero() {
   return (
     <section className="hero" id="top" aria-labelledby="hero-brand">
-      <div className="hero-atmosphere" aria-hidden="true" />
+      <div className="hero-city" aria-hidden="true" />
+      <div className="hero-beam" aria-hidden="true" />
       <div className="hero-copy">
-        <p className="eyebrow">Fresh daily · Uptown Dallas</p>
+        <p className="eyebrow">Not a slice · urban.donut.co</p>
         <h1 id="hero-brand" className="hero-brand">
           Urban Donut <span>Co</span>
         </h1>
         <p className="hero-lede">
-          Hand-glazed donuts and a design-your-own bar for the city that never
-          clocks out of craving.
+          They said the city only had pizza left. We heard a hole.
         </p>
         <div className="hero-cta">
-          <button type="button" className="btn btn-primary" onClick={onBuild}>
-            Build your donut
-          </button>
-          <a className="btn btn-ghost" href="#menu">
-            See the case
+          <a className="btn btn-primary" href="#rings">
+            See the six rings
+          </a>
+          <a className="btn btn-ghost" href="#wide-wonder">
+            Wide Wonder
           </a>
         </div>
       </div>
       <div className="hero-visual" aria-hidden="true">
-        <div className="hero-orbit">
+        <div className="hero-stage">
+          <Logo size={280} className="hero-logo" />
           <DonutVisual
-            glaze="#FF3D6E"
-            icing="#FF7A9C"
-            size={320}
-            sprinkle
+            glaze="#F3D27A"
+            icing="#FFF1C2"
+            size={112}
+            goldStripe
             animate
-            className="hero-donut"
+            className="hero-ring a"
           />
           <DonutVisual
-            glaze="#F5C84C"
-            icing="#FFE08A"
-            size={120}
-            className="hero-donut-small a"
-          />
-          <DonutVisual
-            glaze="#3D241C"
-            icing="#6B4335"
-            size={96}
-            className="hero-donut-small b"
+            glaze="#F6F3EC"
+            icing="#FFFDF8"
+            size={88}
+            pearl
+            className="hero-ring b"
           />
         </div>
       </div>

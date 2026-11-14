@@ -1,6 +1,8 @@
 # Urban Donut Co
 
-A branded ordering experience for Urban Donut Co — menu browsing, a design-your-own donut bar, and a local sample checkout bag.
+Brand site and sample ordering experience based on the [Grok Urban Donut Co brief](https://grok.com/share/c2hhcmQtNQ_5dc2398d-3829-4e6b-a030-86d7879494b6).
+
+Black-and-white groovy shop under a gold beam. **The Six Rings.** Not a slice.
 
 ## Develop
 

@@ -13,7 +13,7 @@ export function CartDrawer() {
       <button type="button" className="cart-backdrop" aria-label="Close bag" onClick={() => setOpen(false)} />
       <aside className="cart-drawer">
         <header className="cart-header">
-          <h2 id="cart-title">Your bag</h2>
+          <h2 id="cart-title">The dozen</h2>
           <button type="button" className="icon-close" onClick={() => setOpen(false)} aria-label="Close">
             ×
           </button>
@@ -21,11 +21,11 @@ export function CartDrawer() {
 
         {placed ? (
           <div className="cart-success">
-            <DonutVisual glaze="#FF3D6E" icing="#FF7A9C" size={120} sprinkle animate />
-            <h3>Order queued</h3>
+            <DonutVisual glaze="#F3D27A" icing="#FFF1C2" size={120} goldStripe animate />
+            <h3>Beam caught</h3>
             <p>
-              This is a sample checkout — your bag is cleared locally. Swing by
-              the Uptown counter or wire up real payments when you are ready.
+              Sample checkout only — bag cleared locally. If you wanted a slice,
+              the city still has plenty.
             </p>
             <button
               type="button"
@@ -35,14 +35,14 @@ export function CartDrawer() {
                 setOpen(false)
               }}
             >
-              Keep browsing
+              Back to the rings
             </button>
           </div>
         ) : items.length === 0 ? (
           <div className="cart-empty">
-            <p>Your bag is empty. The fryer is not.</p>
+            <p>Empty dozen. The beam is waiting.</p>
             <button type="button" className="btn btn-ghost" onClick={() => setOpen(false)}>
-              Browse the case
+              See the six rings
             </button>
           </div>
         ) : (
@@ -51,9 +51,10 @@ export function CartDrawer() {
               {items.map((item) => (
                 <li key={item.id} className="cart-item">
                   <DonutVisual
-                    glaze={item.glaze ?? '#FF3D6E'}
+                    glaze={item.glaze ?? '#F3D27A'}
                     size={56}
-                    sprinkle={item.name.includes('Sprinkle') || item.detail.includes('sprinkle')}
+                    pearl={item.id === 'wide-wonder'}
+                    goldStripe={item.id === 'beam'}
                   />
                   <div className="cart-item-copy">
                     <h3>{item.name}</h3>
@@ -91,7 +92,7 @@ export function CartDrawer() {
                   setPlaced(true)
                 }}
               >
-                Place sample order
+                Place sample dozen
               </button>
             </footer>
           </>
